@@ -1,0 +1,434 @@
+.realtime_container {
+   display: flex;
+   flex-direction: column;
+   align-items: center; /* Esto asegura que todo esté centrado */
+   height: 100vh;
+   width: 100%;
+   margin: 0;
+   box-sizing: border-box;
+   overflow: hidden;
+   font-size: 0.8vw;
+}
+
+.realtime_container_btns {
+   flex: 0 0 auto;
+   width: 100%;
+   max-width: 80rem; /* Para mantener consistencia con el ancho de las tablas */
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding: 20px 0;
+   box-sizing: border-box;
+   margin: 0 auto; /* Esto ayuda a centrar el contenedor */
+}
+.realtime_container_btns_views {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   gap: 20px; /* Espacio entre elementos */
+}
+.realtime_container_views {
+   flex: 1; /* Cambiado de height fijo a flex 1 */
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   box-sizing: border-box;
+   overflow: hidden;
+   min-height: 0; /* Importante para scroll */
+}
+
+.realtime_container_btns_checkbox{
+   display: flex;
+   flex-direction: row;
+   justify-content: center; /* Cambiado de right a center */
+   align-items: center;
+   gap: 20px; /* Espacio entre elementos */
+}
+
+.realtime_btns_checkbox{
+   margin-right:2vw;
+}
+.realtime_btns_views{
+   margin-right:2vw;
+}
+.realtime_container_views{
+	
+	flex: 0.95;
+	display: flex;
+   align-items: center;
+   justify-content: center;
+
+}
+.realtime_container_views_tdma_graph{
+	border: 2px solid green;
+   height: 48.25rem;
+   width: 68.75rem;
+   display: flex;
+   flex-direction: column;
+}
+.realtime_container_views_tdma_graph_requested{
+   height: 32%;
+}
+.realtime_container_views_tdma_graph_allocated{
+   height: 32%;
+}
+/* .realtime_container_views_tdma_frameplan_container {
+   height: 48.25rem;
+   width: 100%;
+   display:flex;
+   flex-direction: column;
+   padding: 10px;
+   justify-content: space-between;
+} */
+.realtime_container_views_tdma_frameplan_container {
+   height: 100%; /* Take up available height within the parent */
+   max-height: 100%; /* Prevent it from growing larger than the parent */
+   width: 100%; /* Full width of the parent */
+   display: flex;
+   flex-direction: column;
+   padding: 0.625rem;
+   justify-content: space-between;
+   overflow: auto; /* Allow scrolling if content exceeds height */
+}
+
+.realtime_container_views_tdma_station_container {
+   width: 100%;
+   max-width: 80rem;
+   height: 100%; /* Cambiado de rem fijo a 100% */
+   display: flex;
+   flex-direction: column;
+   padding: 0.625rem;
+   box-sizing: border-box;
+   min-height: 0; /* Importante para scroll */
+}
+
+/* Contenedor de la grilla superior (MF-HUB) */
+.realtime_container_views_tdma_station_container > div:first-child {
+   flex: 0 0 150px; /* Altura fija mínima para la tabla superior */
+   min-height: 150px; /* Asegura altura mínima */
+   overflow: hidden; /* Previene desbordamiento */
+}
+
+/* Contenedor de la grilla inferior (estaciones) */
+.realtime_container_views_tdma_station_container > div:last-child {
+   flex: 1;
+   min-height: 0;
+   overflow-y: auto;
+}
+.ag-theme-balham {
+   min-height: 0;
+   height: 100% !important;
+}
+.realtime_container_views_tdma_frameplan_axis{
+   flex: 0.02;
+}
+.realtime_container_views_tdma_frameplan_chart{
+   flex: 0.98;
+/*    display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: 1fr;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px; */
+}
+.realtime_container_views_tdma_frameplan_column{
+   display: grid;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+   height: 100%;
+}
+.realtime_container_views_tdma_frameplan_row{
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: 1fr 0.09fr 0.1fr 1fr;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+}
+.number_axis_box{
+   grid-area: 1 / 1 / 2 / 2;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.number_axis_box_number{
+   color: rgba(0,0,0,0.50);
+   font-size:12px;
+}
+.line_horizontal{
+   grid-area: 3 / 1 / 4 / 2;
+   border-top: 1px solid #CECECE;
+}
+.line_horizontal_beginning_box{
+   grid-area: 3 / 1 / 4 / 2;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: 1fr;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+}
+.line_horizontal_beginning_line{
+   grid-area: 1 / 2 / 2 / 3;
+   border-top: 1px solid #CECECE;
+}
+.line_horizontal_end_box{
+   grid-area: 3 / 1 / 4 / 2;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: 1fr;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+}
+.line_horizontal_end_line{
+   grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 2;
+   border-top: 1px solid #CECECE;
+}
+
+.line_in_middle_box {
+   grid-area: 2 / 1 / 5 / 2;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: 1fr;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+}
+.line_in_middle_line{
+   grid-area: 1 / 1 / 2 / 2;
+   border-right: 1px solid #CECECE;
+}
+
+.realtime_container_views_tdma_frameplan_column_chart{
+   grid-area: 1 / 1 / 2 / 2;
+   display: grid;
+   grid-column-gap: 0px;
+   grid-template-rows: 1fr;
+   grid-row-gap: 0px;
+   height: 100%;
+}
+.realtime_container_views_tdma_frameplan_column_char_req{
+   grid-area: 1 / 1 / 1 / 1;
+   display: grid;
+   grid-column-gap: 0px;
+   grid-template-rows: 1fr;
+   grid-row-gap: 0px;
+   height: 100%;
+   grid-template-columns: 1fr;
+
+}
+.tdma_realtime_container_views_tdma_frameplan_column_char_req{
+   display: grid;
+   grid-template-rows: 1fr;
+   grid-row-gap: 0px;
+   height: 100%;
+   grid-template-columns: 0.12fr 1fr 0.12fr 0.06fr;
+
+}
+.tdma_realtime_container_views_tdma_frameplan_column_char_req_container_overflow{
+   grid-area: 1 / 3 / 1 / 3;
+   display: grid;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+}
+.tdma_realtime_container_views_tdma_frameplan_column_char_req_container_overflow_arrow{
+   grid-area: 1 / 4 / 1 / 4;
+   display: grid;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+}
+
+.tdma_labels_top{
+   grid-area: 1 / 1 / 1 / 1024;
+   display:flex;
+   flex-direction:row;
+   justify-content: space-around;
+}
+.tdma_labels_bottom{
+   grid-area: 10 / 1 / 10 / 1024;
+   display:flex;
+   flex-direction:row;
+   justify-content: space-around;
+
+}
+.tdma_realtime_container_views_tdma_frameplan_column_char_req_container_overflow_requested_text{
+   grid-area: 1 / 2 / 1 / 4;
+   display: grid;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+   grid-template-columns: repeat(2048, minmax(0px, 1fr));
+}
+
+.container_label{
+   display:flex;
+   flex-direction:row;
+}
+.circle_label{
+   height: 1vw; /* Adjust based on viewport width */
+   width: 1vw;
+   display: block;
+   border: 0.1vw solid black; /* Border scales with size */
+   border-radius: 50%; /* Perfect circle */
+}
+.text_label_tdma{
+   margin-left: 0.4vw; 
+}
+.realtime_container_views_tdma_frameplan_label_container{
+   grid-area: 1 / 1 / 1 / 1;
+   display: grid;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+}
+.realtime_container_views_tdma_frameplan_column_char_req_container{
+   grid-area: 1 / 1 / 1 / 1;
+   display: grid;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+}
+.tdma_realtime_container_views_tdma_frameplan_column_char_req_container_label_axis{
+   grid-area: 1 / 1 / 1 / 1;
+   display: grid;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+   margin-right: 5px;
+   min-height: 75vh;
+}
+.requested_label{
+   grid-area: 3 / 1 / 3 / 1;
+   display: flex;
+   flex-direction: row;
+   justify-content: right;
+   align-items: center;
+}
+.QoS_label{
+   grid-area: 4 / 1 / 4 / 1;
+   display: flex;
+   flex-direction: row;
+   justify-content: right;
+   align-items: center;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   width:100%; /* some width */
+}
+.allocated_label{
+   grid-area: 7 / 1 / 7 / 1;
+   display: flex;
+   flex-direction: row;
+   justify-content: right;
+   align-items: center;
+}
+.framelayout_label{
+   grid-area: 8 / 1 / 8 / 1;
+   display: flex;
+   flex-direction: row;
+   justify-content: right;
+   align-items: center;
+}
+.tdma_realtime_container_views_tdma_frameplan_column_char_req_container{
+   grid-area: 1 / 2 / 1 / 2;
+   display: grid;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+}
+.tdma_realtime_container_views_tdma_frameplan_column_overflow_text_container{
+   display: flex;
+   justify-content: center; /* Center horizontally */
+   align-items: center;     /* Center vertically */
+}
+.tdma_realtime_container_views_tdma_frameplan_column_arrow{
+   grid-area: 3 / 1 / 3 / 1;
+   display: flex;
+   justify-content: flex-start; /* Center horizontally */
+   align-items: normal;     /* Center vertically */
+   font-size: 25px;
+   color: red;
+}
+
+.tdma_container_views_tdma_frameplan_column_char_req_container{
+   grid-area: 1 / 1 / 1 / 1;
+   display: grid;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+}
+.realtime_container_views_tdma_container{
+   grid-area: 1 / 1 / 1 / 1;
+   display: grid;
+   grid-template-rows: 0.2fr 0.01fr 0.02fr 0.2fr;
+   grid-template-columns: 1fr;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+}
+.tdma_overview_chart_container_top{
+   grid-area: 2 / 1 / 2 / 1;
+}
+.tdma_overview_chart_container_bottom{
+   grid-area: 3 / 1 / 3 / 1;
+}
+.realtime_rql{
+   background-color: white;
+   display: flex;
+   flex-direction: row;
+}
+.station_number {
+   font-size: 7px;
+   display: flex;
+   align-items: center;      /* Centra verticalmente */
+   justify-content: center;  /* Centra horizontalmente */
+   overflow: hidden;
+   min-width: 10px;
+   height: 100%;            /* Asegura que tome todo el alto disponible */
+   writing-mode: vertical-rl;
+   text-orientation: mixed;
+   transform: rotate(180deg);
+}
+
+/* O si prefieres usar una clase separada para el contenedor del texto */
+.station_number span {
+   display: inline-block;
+   width: fit-content;
+}
+.inroute_name{
+   font-size: 15px;
+   color:red;
+   background-color: white;
+}
+.rectangle_border {
+   border: 1px solid black;
+}
+
+.realtime_container_views_tdma_frameplan_row_chart{
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: 1fr;
+   grid-column-gap: 0px;
+   grid-row-gap: 0fr;
+}
+.line_in_middle_box_chart {
+   grid-area: 1 / 1 / 5 / 2;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: 1fr;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+   
+}
+.line_in_middle_line_chart{
+   grid-area: 1 / 1 / 2 / 2;
+   border-right: 1px solid #CECECE;
+}
+.realtime_container_views_tdma_frameplan_row_chart_square {
+   display: grid;
+   grid-template-rows: 20px 1fr;
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+}
+.values_tdmaOverview {
+   height: 100%;
+   padding: 0;
+   margin: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
